@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(156, 220, 254);
+  font-family: Consolas, Courier, monospace;
+  transition: all 0.5s;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  height: 100vh;
+  background-color: rgb(185, 225, 253);
+  display: flex;
+  perspective: 1000px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.btns {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 1rem;
+}
+
+.btns > button {
+  background-color: #eee;
+  color: #888;
+  font-weight: bolder;
+  font-size: 12px;
+  padding: 8px 20px;
+  border-radius: 3px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btns > button:hover {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btns > button::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  content: '';
+  width: 0;
+  height: 0;
+}
+
+.btns > button.active::after {
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+  animation: ripple 0.3s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  100% {
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+    width: 120px;
+    height: 120px;
+    background-color: transparent;
+  }
+}
+
+.code {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(30, 30, 30);
+  padding: 2rem;
+  overflow: hidden;
+  -webkit-transform: rotateY(10deg) translateZ(-100px);
+  transform: rotateY(10deg) translateZ(-100px);
+}
+
+.minions-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
